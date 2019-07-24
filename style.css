@@ -115,3 +115,33 @@ table td {
 p {
   margin-bottom: 0px;
 }
+
+.logo {
+  width:40px; 
+  height:40px;
+  margin-top:-15px;
+  display:inline-block;	
+}
+.google {
+ content: url("files/google.png");
+  width:40px; 
+}
+.dwave {
+ height:20px;
+ content: url("files/dwave.png");
+}
+.nii {
+ content: url("files/nii.jpg");
+   width:4	0px; 
+}
+.microsoft {
+ content: url("files/microsoft.png");
+  width:40px; 
+}
+
+#main_last p {
+  display:inline-block;
+  margin-top:10px;
+  padding-left:8px;
+  width:90%;
+}
