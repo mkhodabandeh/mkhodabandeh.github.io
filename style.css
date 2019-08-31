@@ -139,7 +139,7 @@ p {
   width:40px; 
 }
 
-#main_last p {
+.experiences p {
   display:inline-block;
   margin-top:10px;
   padding-left:8px;
