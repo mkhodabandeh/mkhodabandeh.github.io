@@ -149,3 +149,13 @@ p {
   padding-left:8px;
   width:90%;
 }
+
+.icon-container {
+  font-size: 1.2em; /* Increase the font size */
+}
+.icon-container a {
+  margin-right: 10px; /* Add space between icons */
+  color: inherit; /* Use the same color as the surrounding text */
+  text-decoration: none; /* Remove the underline from the links */
+}
+
