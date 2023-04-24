@@ -122,6 +122,10 @@ p {
   margin-top:-15px;
   display:inline-block;	
 }
+.vai {
+ content: url("files/vai_icon.png");
+  width:40px; 
+}
 .google {
  content: url("files/google.png");
   width:40px; 
