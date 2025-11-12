@@ -80,7 +80,7 @@
     .header-main {
       display: flex;
       gap: 18px;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       flex-wrap: wrap;
     }
@@ -132,23 +132,6 @@
       color: #4b5563;
     }
 
-    .avatar-wrapper {
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .avatar {
-      width: 140px;
-      height: 140px;
-      border-radius: 18px;
-      object-fit: cover;
-      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
-      border: 3px solid #ffffff;
-      background: #e5e7eb;
-    }
-
     .icon-row {
       margin-top: 10px;
       display: flex;
@@ -175,6 +158,35 @@
       border-color: var(--accent);
       color: var(--accent);
       text-decoration: none;
+    }
+
+    .avatar-wrapper {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
+      border: 3px solid #ffffff;
+      background: #e5e7eb;
+    }
+
+    .about-text {
+      margin-top: 14px;
+      max-width: 640px;
+    }
+
+    .about-text p {
+      margin: 6px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #111827;
     }
 
     nav {
@@ -337,7 +349,7 @@
       color: var(--accent);
     }
 
-    /* Org logos in main timeline – update URLs to your own logo files */
+    /* Org logos */
 
     .org-logo {
       width: 26px;
@@ -488,7 +500,8 @@
 </head>
 <body>
   <div class="page">
-    <header class="site-header">
+    <!-- ABOUT lives in the hero now -->
+    <header id="about" class="site-header">
       <div class="header-main">
         <div class="title-block">
           <div class="name">Mehran Khodabandeh</div>
@@ -519,9 +532,35 @@
               <i class="fab fa-github"></i>
             </a>
           </div>
+
+          <!-- Full About content moved here -->
+          <div class="about-text">
+            <p>
+              I am a machine learning engineer at <strong>Meta</strong>, where I work on the
+              safety and alignment of large language models. My work focuses on improving the
+              reliability of LLMs through better training signals, safety evaluations, and
+              model behavior analysis.
+            </p>
+            <p>
+              Previously, I co-founded
+              <a href="https://variational.ai/">Variational AI</a>,
+              a generative AI drug discovery startup. At Variational AI, we built deep
+              generative models to design novel molecular compounds with the potential to become
+              new medicines, exploring chemical space more efficiently than traditional approaches.
+            </p>
+            <p>
+              I completed my PhD in Computing Science at
+              <a href="http://cs.sfu.ca/~mori/">Simon Fraser University</a> under
+              <strong>Prof. Greg Mori</strong>, working on machine learning and computer vision, and
+              spent part of my PhD as a visiting researcher at the
+              <a href="https://www.nii.ac.jp/en/research/">National Institute of Informatics</a>
+              in Tokyo. Before that, I earned my B.Sc. in Computer Engineering from
+              <strong>Sharif University of Technology</strong> in Iran.
+            </p>
+          </div>
         </div>
+
         <div class="avatar-wrapper">
-          <!-- Update the src to your actual photo path -->
           <img
             src="files/photo.jpg"
             alt="Photo of Mehran Khodabandeh"
@@ -531,19 +570,20 @@
       </div>
 
       <nav aria-label="Section navigation">
-        <a href="#timeline">Experience</a>
         <a href="#about">About</a>
+        <a href="#timeline">Experience</a>
         <a href="#research">Publications</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main class="layout">
-      <!-- LEFT: TIMELINE (main focus) -->
+      <!-- LEFT: TIMELINE (Meta -> VAI -> PhD -> MSc -> BSc) -->
       <div>
         <section id="timeline">
           <h2>Experience &amp; Education</h2>
           <ul class="timeline">
+            <!-- Meta -->
             <li class="timeline-item">
               <div class="timeline-header">
                 <span class="org-logo meta" aria-hidden="true"></span>
@@ -564,6 +604,7 @@
               </div>
             </li>
 
+            <!-- Variational AI -->
             <li class="timeline-item">
               <div class="timeline-header">
                 <span class="org-logo vai" aria-hidden="true"></span>
@@ -584,11 +625,12 @@
               </div>
             </li>
 
+            <!-- PhD -->
             <li class="timeline-item">
               <div class="timeline-header">
                 <span class="org-logo sfu" aria-hidden="true"></span>
                 <div>
-                  <div class="role">Ph.D. &amp; M.Sc., Computing Science</div>
+                  <div class="role">Ph.D., Computing Science</div>
                   <div class="org">Simon Fraser University</div>
                 </div>
               </div>
@@ -598,7 +640,7 @@
                 <li>Supervisor: Prof. Greg Mori.</li>
               </ul>
               <div class="sub-note">
-                Internships and visiting research during my graduate studies:
+                Internships and visiting research during my PhD:
               </div>
               <ul class="sub-timeline">
                 <li class="sub-timeline-item">
@@ -606,7 +648,9 @@
                     <span class="org-logo google small" aria-hidden="true"></span>
                     <div>
                       <div class="sub-role">Research Intern, Google</div>
-                      <div class="sub-meta">Seattle, WA, USA • Fall 2018 • Mentors: Aseem Agarwala, Raviteja Vemulapalli</div>
+                      <div class="sub-meta">
+                        Seattle, WA, USA • Fall 2018 • Mentors: Aseem Agarwala, Raviteja Vemulapalli
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -615,7 +659,9 @@
                     <span class="org-logo dwave small" aria-hidden="true"></span>
                     <div>
                       <div class="sub-role">Research Intern, D-Wave Systems</div>
-                      <div class="sub-meta">Burnaby, BC, Canada • Spring 2018 • Mentors: Arash Vahdat, Mani Ranjbar</div>
+                      <div class="sub-meta">
+                        Burnaby, BC, Canada • Spring 2018 • Mentors: Arash Vahdat, Mani Ranjbar
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -624,7 +670,9 @@
                     <span class="org-logo microsoft small" aria-hidden="true"></span>
                     <div>
                       <div class="sub-role">Research Intern, Microsoft</div>
-                      <div class="sub-meta">Redmond, WA, USA • Summer 2017 • Mentor: Hamid Vaezi Joze</div>
+                      <div class="sub-meta">
+                        Redmond, WA, USA • Summer 2017 • Mentor: Hamid Vaezi Joze
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -633,13 +681,31 @@
                     <span class="org-logo nii small" aria-hidden="true"></span>
                     <div>
                       <div class="sub-role">Research Intern / Visiting Researcher, NII</div>
-                      <div class="sub-meta">National Institute of Informatics, Tokyo, Japan • 2015–2016 • Supervisor: Prof. Shin'ichi Satoh</div>
+                      <div class="sub-meta">
+                        National Institute of Informatics, Tokyo, Japan • 2015–2016 • Supervisor: Prof. Shin'ichi Satoh
+                      </div>
                     </div>
                   </div>
                 </li>
               </ul>
             </li>
 
+            <!-- MSc -->
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <span class="org-logo sfu" aria-hidden="true"></span>
+                <div>
+                  <div class="role">M.Sc., Computing Science</div>
+                  <div class="org">Simon Fraser University</div>
+                </div>
+              </div>
+              <div class="timeline-meta">Burnaby, BC, Canada</div>
+              <ul class="timeline-bullets">
+                <li>Graduate studies in computer vision and machine learning.</li>
+              </ul>
+            </li>
+
+            <!-- BSc -->
             <li class="timeline-item">
               <div class="timeline-header">
                 <span class="org-logo sharif" aria-hidden="true"></span>
@@ -657,34 +723,8 @@
         </section>
       </div>
 
-      <!-- RIGHT: ABOUT / RESEARCH / CONTACT -->
+      <!-- RIGHT: Publications + Contact -->
       <div>
-        <section id="about">
-          <h2>About</h2>
-          <p>
-            I am a machine learning engineer at <strong>Meta</strong>, where I work on the
-            safety and alignment of large language models. My work focuses on improving the
-            reliability of LLMs through better training signals, safety evaluations, and
-            model behavior analysis.
-          </p>
-          <p>
-            Previously, I co-founded
-            <a href="https://variational.ai/">Variational AI</a>,
-            a generative AI drug discovery startup. At Variational AI, we built deep
-            generative models to design novel molecular compounds with the potential to become
-            new medicines, exploring chemical space more efficiently than traditional approaches.
-          </p>
-          <p>
-            I completed my PhD in Computing Science at
-            <a href="http://cs.sfu.ca/~mori/">Simon Fraser University</a> under
-            <strong>Prof. Greg Mori</strong>, working on machine learning and computer vision, and
-            spent part of my PhD as a visiting researcher at the
-            <a href="https://www.nii.ac.jp/en/research/">National Institute of Informatics</a>
-            in Tokyo. Before that, I earned my B.Sc. in Computer Engineering from
-            <strong>Sharif University of Technology</strong> in Iran.
-          </p>
-        </section>
-
         <section id="research">
           <h2>Publications &amp; Preprints</h2>
           <p class="muted">
@@ -744,7 +784,7 @@
             <a href="mailto:mehran.kh.68@gmail.com">mehran.kh.68@gmail.com</a>
           </p>
           <p class="muted">
-            You can also find me on LinkedIn, GitHub, and Google Scholar using the icons above.
+            You can also find me on LinkedIn, GitHub, and Google Scholar using the icons in the header.
           </p>
         </section>
       </div>
