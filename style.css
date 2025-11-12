@@ -117,18 +117,22 @@ p {
 }
 
 .logo {
-  width:40px; 
+  width:40px;
   height:40px;
   margin-top:-15px;
-  display:inline-block;	
+  display:inline-block;
 }
 .vai {
  content: url("files/vai_icon.png");
-  width:40px; 
+  width:40px;
+}
+.meta {
+ content: url("files/meta.png");
+  width:40px;
 }
 .google {
  content: url("files/google.png");
-  width:40px; 
+  width:40px;
 }
 .dwave {
  height:20px;
@@ -136,11 +140,11 @@ p {
 }
 .nii {
  content: url("files/nii.jpg");
-   width:4	0px; 
+   width:4	0px;
 }
 .microsoft {
  content: url("files/microsoft.png");
-  width:40px; 
+  width:40px;
 }
 
 .experiences p {
@@ -158,4 +162,3 @@ p {
   color: inherit; /* Use the same color as the surrounding text */
   text-decoration: none; /* Remove the underline from the links */
 }
-
