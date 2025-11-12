@@ -274,14 +274,15 @@
     .timeline {
       list-style: none;
       padding-left: 0;
-      margin: 8px 0 0;
+      margin: 12px 0 0;
       border-left: 1px solid var(--border-strong);
     }
 
     .timeline-item {
       position: relative;
       padding-left: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 22px;   /* more vertical space */
+      padding-bottom: 2px;
     }
 
     .timeline-item::before {
@@ -301,7 +302,7 @@
       display: flex;
       gap: 10px;
       align-items: center;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
     .role {
@@ -317,17 +318,17 @@
     .timeline-meta {
       font-size: 0.8rem;
       color: var(--muted);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .timeline-bullets {
       margin-top: 4px;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
       padding-left: 16px;
     }
 
     .timeline-bullets li {
-      margin-bottom: 2px;
+      margin-bottom: 4px;  /* more spacing between bullet lines */
       font-size: 0.88rem;
       color: #111827;
     }
@@ -349,7 +350,7 @@
       color: var(--accent);
     }
 
-    /* Org logos */
+    /* Org logos wired to your actual files in /files */
 
     .org-logo {
       width: 26px;
@@ -364,42 +365,40 @@
     }
 
     .org-logo.meta {
-      background-image: url("files/logo_meta.png");
+      background-image: url("files/meta.png");
     }
 
     .org-logo.vai {
-      background-image: url("files/logo_variational_ai.png");
+      background-image: url("files/vai_icon.png");
     }
 
     .org-logo.google {
-      background-image: url("files/logo_google.png");
+      background-image: url("files/google.png");
     }
 
     .org-logo.microsoft {
-      background-image: url("files/logo_microsoft.png");
+      background-image: url("files/microsoft.png");
     }
 
     .org-logo.dwave {
-      background-image: url("files/logo_dwave.png");
+      background-image: url("files/dwave.png");
     }
 
     .org-logo.nii {
-      background-image: url("files/logo_nii.png");
+      background-image: url("files/nii.jpg");
     }
 
-    .org-logo.sfu {
-      background-image: url("files/logo_sfu.png");
-    }
-
+    /* universities: simple gray boxes for now */
+    .org-logo.sfu,
     .org-logo.sharif {
-      background-image: url("files/logo_sharif.png");
+      /* no background-image yet; will just show as gray rounded squares */
     }
 
     /* Sub-timeline for internships (under PhD) */
 
     .sub-timeline {
       list-style: none;
-      margin: 6px 0 0;
+      margin: 10px 0 0;           /* more space above */
       padding-left: 24px;
       border-left: 1px dashed var(--border-strong);
     }
@@ -407,7 +406,7 @@
     .sub-timeline-item {
       position: relative;
       padding-left: 10px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;         /* more vertical space */
     }
 
     .sub-timeline-item::before {
@@ -448,7 +447,7 @@
     .sub-note {
       font-size: 0.8rem;
       color: var(--muted);
-      margin-top: 4px;
+      margin-top: 6px;
       margin-bottom: 4px;
     }
 
@@ -500,7 +499,7 @@
 </head>
 <body>
   <div class="page">
-    <!-- ABOUT lives in the hero now -->
+    <!-- ABOUT lives only in the hero -->
     <header id="about" class="site-header">
       <div class="header-main">
         <div class="title-block">
@@ -533,7 +532,6 @@
             </a>
           </div>
 
-          <!-- Full About content moved here -->
           <div class="about-text">
             <p>
               I am a machine learning engineer at <strong>Meta</strong>, where I work on the
@@ -578,7 +576,7 @@
     </header>
 
     <main class="layout">
-      <!-- LEFT: TIMELINE (Meta -> VAI -> PhD -> MSc -> BSc) -->
+      <!-- LEFT: TIMELINE -->
       <div>
         <section id="timeline">
           <h2>Experience &amp; Education</h2>
@@ -723,7 +721,7 @@
         </section>
       </div>
 
-      <!-- RIGHT: Publications + Contact -->
+      <!-- RIGHT: Publications + Contact (no About card) -->
       <div>
         <section id="research">
           <h2>Publications &amp; Preprints</h2>
