@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mehran Khodabandeh – Machine Learning & AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Homepage of Mehran Khodabandeh, machine learning engineer at Meta working on large language model safety." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-alt: #121728;
+      --fg: #f5f5f7;
+      --muted: #a0a4b8;
+      --accent: #5cc3ff;
+      --accent-soft: rgba(92, 195, 255, 0.15);
+      --border: #23283a;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #1b2340 0, #050815 55%, #02020a 100%);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 32px;
+      padding: 18px 20px 20px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(92, 195, 255, 0.12), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(92, 195, 255, 0.28);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(12px);
+    }
+
+    @media (min-width: 720px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .title-block {
+      max-width: 600px;
+    }
+
+    .name {
+      font-size: 1.8rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    .tagline {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(160, 164, 184, 0.6);
+      color: var(--muted);
+      background: rgba(4, 8, 20, 0.6);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+      justify-content: flex-start;
+    }
+
+    nav a {
+      font-size: 0.83rem;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: rgba(4, 8, 20, 0.7);
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 840px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    section {
+      margin-bottom: 18px;
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(7, 10, 24, 0.92);
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 6px 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #e0e2f1;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    ul {
+      margin: 6px 0 4px;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 3px;
+      font-size: 0.9rem;
+      color: #dde0f0;
+    }
+
+    .timeline {
+      list-style: none;
+      padding-left: 0;
+      margin: 8px 0 0;
+      border-left: 1px solid var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 9px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(92, 195, 255, 0.15);
+    }
+
+    .timeline-role {
+      font-size: 0.9rem;
+      font-weight: 550;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(92, 195, 255, 0.12);
+      border: 1px solid rgba(92, 195, 255, 0.4);
+      color: var(--accent);
+    }
+
+    .link-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 6px 0;
+    }
+
+    .link-list li {
+      margin-bottom: 4px;
+    }
+
+    .chip-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(160, 164, 184, 0.6);
+      background: rgba(7, 10, 24, 0.8);
+      font-size: 0.8rem;
+    }
+
+    .chip-link span {
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 22px;
+      padding: 10px 2px 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    code {
+      font-family: Menlo, SFMono-Regular, Consolas, "Roboto Mono", monospace;
+      font-size: 0.85em;
+      background: rgba(3, 7, 18, 0.8);
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="title-block">
+        <div class="name">Mehran Khodabandeh</div>
+        <div class="tagline">
+          Machine learning engineer at Meta, working on safety and alignment for large language models.
+        </div>
+        <div class="pill-row">
+          <div class="pill">LLM Safety &amp; Alignment</div>
+          <div class="pill">Generative Models</div>
+          <div class="pill">Drug Discovery</div>
+          <div class="pill">Computer Vision</div>
+        </div>
+      </div>
+      <nav aria-label="Section navigation">
+        <a href="#about">About</a>
+        <a href="#meta">Meta</a>
+        <a href="#variational-ai">Variational AI</a>
+        <a href="#research">Research</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Left column -->
+      <div>
+        <section id="about">
+          <h2>About</h2>
+          <p>
+            I’m a machine learning engineer at Meta, focusing on the safety and alignment of
+            large language models. My work spans fine-tuning, safety data curation, and large-scale
+            evaluation to reduce harmful outputs and improve user experience.
+          </p>
+          <p>
+            Before Meta, I co-founded
+            <strong>Variational AI</strong>, where we used deep generative models—such as VAEs and
+            diffusion models—to design novel drug-like molecules and accelerate early-stage drug discovery.
+          </p>
+          <p>
+            Prior to industry, I completed my PhD in Computing Science at
+            <strong>Simon Fraser University</strong> under the supervision of
+            <a href="http://www.cs.sfu.ca/~mori" target="_blank" rel="noreferrer">Prof. Greg Mori</a>,
+            and earned my B.Sc. in Computer Engineering from
+            <strong>Sharif University of Technology</strong>.
+          </p>
+        </section>
+
+        <section id="meta">
+          <h2>Current work at Meta</h2>
+          <p class="muted">Research Engineer – Superintelligence Lab</p>
+          <ul>
+            <li>Lead fine-tuning and post-training work to align large language models with safety guidelines.</li>
+            <li>Design safety data pipelines and curation strategies for diverse, high-quality training signals.</li>
+            <li>Run large-scale evaluations and analyses to monitor harmful behaviors and improve user experience.</li>
+          </ul>
+          <div class="badge-row">
+            <div class="badge">LLM safety</div>
+            <div class="badge">Alignment</div>
+            <div class="badge">RLHF / post-training</div>
+            <div class="badge">Evaluation</div>
+          </div>
+        </section>
+
+        <section id="variational-ai">
+          <h2>Variational AI</h2>
+          <p class="muted">Co-founder &amp; Machine Learning Scientist (2019–2024)</p>
+          <p>
+            At <strong>Variational AI</strong>, we built generative models to propose new molecular structures
+            with desired pharmacological properties. By combining diffusion models, VAEs, and structure-based
+            priors, we searched chemical space for promising drug candidates far more efficiently than
+            manual design.
+          </p>
+          <ul>
+            <li>Led a small multidisciplinary team of ML researchers, software engineers, and computational chemists.</li>
+            <li>Developed generative pipelines for molecular design and property-conditional sampling.</li>
+            <li>Worked across modeling, data, and engineering to turn research ideas into production systems.</li>
+          </ul>
+        </section>
+
+        <section id="writing">
+          <h2>Writing &amp; Notes</h2>
+          <p>
+            I occasionally write about large language model safety, debugging deep learning systems,
+            and generative models applied to scientific discovery.
+          </p>
+          <p class="muted">
+            Blog coming soon – I plan to share short, practical notes rather than formal essays.
+          </p>
+        </section>
+      </div>
+
+      <!-- Right column -->
+      <div>
+        <section>
+          <h2>Timeline</h2>
+          <ul class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-role">Research Engineer, Meta (Superintelligence Lab)</div>
+              <div class="timeline-meta">LLM safety &amp; alignment • Bellevue, WA</div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-role">Co-founder &amp; ML Scientist, Variational AI</div>
+              <div class="timeline-meta">Generative models for drug discovery • Vancouver, BC</div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-role">PhD, Computing Science – Simon Fraser University</div>
+              <div class="timeline-meta">Computer Vision &amp; Machine Learning • Supervisor: Greg Mori</div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-role">M.Sc., Computing Science – Simon Fraser University</div>
+              <div class="timeline-meta">Computer Vision &amp; ML</div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-role">B.Sc., Computer Engineering – Sharif University of Technology</div>
+              <div class="timeline-meta">Hardware Engineering</div>
+            </li>
+          </ul>
+        </section>
+
+        <section id="research">
+          <h2>Research &amp; Publications</h2>
+          <p>
+            My research interests include robust representation learning, domain adaptation,
+            generative modeling, and applications of deep learning to vision and drug discovery.
+          </p>
+          <ul>
+            <li>
+              Robust learning and domain-adaptive object detection (ICCV).
+            </li>
+            <li>
+              Human action video generation for training activity recognition models (CVPR Workshop).
+            </li>
+            <li>
+              Methods and systems for domain adaptation &amp; synthetic data generation (US patents).
+            </li>
+          </ul>
+          <ul class="link-list">
+            <li>
+              <a class="chip-link" href="https://scholar.google.ca/citations?user=OV28nBgAAAAJ&hl=en&oi=ao" target="_blank" rel="noreferrer">
+                <span>Google Scholar</span> ↗
+              </a>
+            </li>
+            <li>
+              <a class="chip-link" href="https://github.com/mkhodabandeh" target="_blank" rel="noreferrer">
+                <span>GitHub</span> ↗
+              </a>
+            </li>
+            <li>
+              <!-- Update this link to the actual CV path on your site -->
+              <a class="chip-link" href="/Mehran_Khodabandeh_CV.pdf" target="_blank" rel="noreferrer">
+                <span>Curriculum Vitae (PDF)</span> ↗
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>
+            The best way to reach me is by email. I’m happy to connect about LLM safety and alignment,
+            generative models, or research/industry collaborations.
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:mehran.kh.68@gmail.com">mehran.kh.68@gmail.com</a>
+          </p>
+          <p class="muted">
+            You can also find me on GitHub and Google Scholar using the links above.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      &copy; <span id="year"></span> Mehran Khodabandeh. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Keep the year up to date automatically.
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
