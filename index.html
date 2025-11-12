@@ -1,58 +1,635 @@
 <!DOCTYPE html>
-<html lang="en" style="background-color: #eee;">
-  <head>
-    <meta charset="utf-8" />
-    <title>Mehran Khodabandeh</title>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mehran Khodabandeh – Machine Learning & AI</title>
 
-    <meta name="keywords" content="Mehran Khodabandeh, Khodabandeh, Mehran, machine learning, large language models, LLM safety, computer vision, deep learning, drug discovery, Variational AI, research scientist, ML engineer">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="Mehran Khodabandeh, Khodabandeh, Mehran, machine learning, large language models, LLM safety, computer vision, deep learning, drug discovery, Variational AI, research scientist, ML engineer">
+  <meta name="description" content="Homepage of Mehran Khodabandeh, machine learning engineer at Meta working on large language model safety." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Google Analytics (optional; keep or remove as you prefer) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143026060-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-143026060-1');
+  </script>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143026060-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'UA-143026060-1');
-    </script>
+  <!-- Font Awesome icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
 
-    <!-- Font Awesome icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-  </head>
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --bg-alt: #ffffff;
+      --fg: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.06);
+      --border: #e5e7eb;
+      --border-strong: #d1d5db;
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
 
-  <body>
-    <!-- Intro / Bio -->
-    <div class="main">
-      <div style="margin-top: 3%;">
-        <div style="float:right; text-align: right">
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #eef2ff 0, #f5f5f7 60%, #f3f4f6 100%);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    .site-header {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 22px 18px;
+      margin-bottom: 28px;
+    }
+
+    .header-main {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .title-block {
+      min-width: 0;
+      flex: 2;
+    }
+
+    .name {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .tagline {
+      margin-top: 6px;
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+
+    .email-line {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .email-line code {
+      font-family: Menlo, SFMono-Regular, Consolas, "Roboto Mono", monospace;
+      font-size: 0.9em;
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      color: #4b5563;
+    }
+
+    .avatar-wrapper {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
+      border: 3px solid #ffffff;
+      background: #e5e7eb;
+    }
+
+    .icon-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 1.1rem;
+    }
+
+    .icon-row a {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #f9fafb;
+      color: #4b5563;
+    }
+
+    .icon-row a:hover,
+    .icon-row a:focus-visible {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    nav {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    nav a {
+      font-size: 0.86rem;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .avatar {
+        width: 110px;
+        height: 110px;
+      }
+    }
+
+    section {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 18px 14px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 6px 0;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: #111827;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    ul {
+      margin: 6px 0 4px;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 3px;
+      font-size: 0.9rem;
+      color: #111827;
+    }
+
+    /* Timeline */
+
+    .timeline {
+      list-style: none;
+      padding-left: 0;
+      margin: 8px 0 0;
+      border-left: 1px solid var(--border-strong);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 14px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 0.7em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .timeline-header {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+
+    .role {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .org {
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .timeline-bullets {
+      margin-top: 4px;
+      margin-bottom: 3px;
+      padding-left: 16px;
+    }
+
+    .timeline-bullets li {
+      margin-bottom: 2px;
+      font-size: 0.88rem;
+      color: #111827;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+      margin-bottom: 4px;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      color: var(--accent);
+    }
+
+    /* Org logos in timeline – update URLs to your own logo files */
+
+    .org-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background-color: #f3f4f6;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      flex-shrink: 0;
+      border: 1px solid #e5e7eb;
+    }
+
+    .org-logo.meta {
+      /* Update to your actual Meta logo path */
+      background-image: url("files/logo_meta.png");
+    }
+
+    .org-logo.vai {
+      background-image: url("files/logo_variational_ai.png");
+    }
+
+    .org-logo.google {
+      background-image: url("files/logo_google.png");
+    }
+
+    .org-logo.microsoft {
+      background-image: url("files/logo_microsoft.png");
+    }
+
+    .org-logo.dwave {
+      background-image: url("files/logo_dwave.png");
+    }
+
+    .org-logo.nii {
+      background-image: url("files/logo_nii.png");
+    }
+
+    .org-logo.sfu {
+      background-image: url("files/logo_sfu.png");
+    }
+
+    .org-logo.sharif {
+      background-image: url("files/logo_sharif.png");
+    }
+
+    /* Link chips */
+
+    .link-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 6px 0;
+    }
+
+    .link-list li {
+      margin-bottom: 4px;
+    }
+
+    .chip-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      font-size: 0.8rem;
+      color: #374151;
+    }
+
+    .chip-link span {
+      font-size: 0.9em;
+    }
+
+    footer {
+      margin-top: 22px;
+      padding: 10px 2px 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    code {
+      font-family: Menlo, SFMono-Regular, Consolas, "Roboto Mono", monospace;
+      font-size: 0.85em;
+      background: #f3f4f6;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-main">
+        <div class="title-block">
+          <div class="name">Mehran Khodabandeh</div>
+          <div class="tagline">
+            Machine learning engineer at Meta, working on safety and alignment of large language models.
+          </div>
+          <div class="email-line">
+            <strong>Email:</strong>
+            <code>mehran.kh.68[@]gmail.com</code>
+          </div>
+          <div class="pill-row">
+            <div class="pill">LLM Safety &amp; Alignment</div>
+            <div class="pill">Generative Models</div>
+            <div class="pill">Drug Discovery</div>
+            <div class="pill">Computer Vision</div>
+          </div>
+          <div class="icon-row">
+            <a href="https://www.linkedin.com/in/mehran-khodabandeh-81011b49/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="cv/Mehran_Khodabandeh_CV_aug_2025.pdf" target="_blank" rel="noreferrer" aria-label="Curriculum Vitae">
+              <i class="fas fa-file-alt"></i>
+            </a>
+            <a href="https://scholar.google.ca/citations?user=OV28nBgAAAAJ" target="_blank" rel="noreferrer" aria-label="Google Scholar">
+              <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="https://github.com/mkhodabandeh/" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="avatar-wrapper">
+          <!-- Update the src to your actual photo path -->
           <img
             src="files/photo.jpg"
-            width="255px"
-            style="margin-left: 35px; margin-bottom: 30px; overflow: hidden; border-radius: 5%;"
-            border="0"
-          /><br />
+            alt="Photo of Mehran Khodabandeh"
+            class="avatar"
+          />
         </div>
+      </div>
 
-        <div>
-          <p>
-            <span class="boldbig">Mehran Khodabandeh</span><br />
-            <span style="font-size: 110%; font-family: Monospace;">
-              mehran.kh.68[@]gmail.com
-            </span>
-          </p>
+      <nav aria-label="Section navigation">
+        <a href="#timeline">Experience</a>
+        <a href="#about">About</a>
+        <a href="#research">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
+    <main class="layout">
+      <!-- LEFT: TIMELINE (main focus) -->
+      <div>
+        <section id="timeline">
+          <h2>Experience &amp; Education</h2>
+          <ul class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <span class="org-logo meta" aria-hidden="true"></span>
+                <div>
+                  <div class="role">Machine Learning Engineer</div>
+                  <div class="org">Meta – Superintelligence Lab</div>
+                </div>
+              </div>
+              <div class="timeline-meta">Bellevue, WA, USA • 2024 – present</div>
+              <ul class="timeline-bullets">
+                <li>Work on safety and alignment of large language models.</li>
+                <li>Improve reliability via training signals, safety evaluations, and behavior analysis.</li>
+              </ul>
+              <div class="badge-row">
+                <span class="badge">LLM safety</span>
+                <span class="badge">Alignment</span>
+                <span class="badge">Post-training</span>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <span class="org-logo vai" aria-hidden="true"></span>
+                <div>
+                  <div class="role">Co-founder &amp; ML Researcher</div>
+                  <div class="org">Variational AI</div>
+                </div>
+              </div>
+              <div class="timeline-meta">Vancouver, BC, Canada • 2019 – 2024</div>
+              <ul class="timeline-bullets">
+                <li>Built generative models (VAEs, diffusion) for de novo drug design.</li>
+                <li>Developed pipelines to explore chemical space and propose drug-like molecules.</li>
+              </ul>
+              <div class="badge-row">
+                <span class="badge">Drug discovery</span>
+                <span class="badge">VAEs</span>
+                <span class="badge">Diffusion models</span>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <span class="org-logo google" aria-hidden="true"></span>
+                <div>
+                  <div class="role">Research Intern</div>
+                  <div class="org">Google</div>
+                </div>
+              </div>
+              <div class="timeline-meta">Seattle, WA, USA • Fall 2018</div>
+              <ul class="timeline-bullets">
+                <li>Research internship on deep learning and computer vision.</li>
+                <li>Mentors: Aseem Agarwala, Raviteja Vemulapalli.</li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <span class="org-logo dwave" aria-hidden="true"></span>
+                <div>
+                  <div class="role">Research Intern</div>
+                  <div class="org">D-Wave Systems</div>
+                </div>
+              </div>
+              <div class="timeline-meta">Burnaby, BC, Canada • Spring 2018</div>
+              <ul class="timeline-bullets">
+                <li>Worked on machine learning for generative modeling and related topics.</li>
+                <li>Mentors: Arash Vahdat, Mani Ranjbar.</li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <span class="org-logo microsoft" aria-hidden="true"></span>
+                <div>
+                  <div class="role">Research Intern</div>
+                  <div class="org">Microsoft</div>
+                </div>
+              </div>
+              <div class="timeline-meta">Redmond, WA, USA • Summer 2017</div>
+              <ul class="timeline-bullets">
+                <li>Research internship in computer vision and deep learning.</li>
+                <li>Mentor: Hamid Vaezi Joze.</li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <span class="org-logo nii" aria-hidden="true"></span>
+                <div>
+                  <div class="role">Research Intern</div>
+                  <div class="org">National Institute of Informatics</div>
+                </div>
+              </div>
+              <div class="timeline-meta">Tokyo, Japan • 2015 – 2016</div>
+              <ul class="timeline-bullets">
+                <li>Worked on video understanding and structured prediction.</li>
+                <li>Supervisor: Prof. Shin'ichi Satoh.</li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <span class="org-logo sfu" aria-hidden="true"></span>
+                <div>
+                  <div class="role">Ph.D. &amp; M.Sc., Computing Science</div>
+                  <div class="org">Simon Fraser University</div>
+                </div>
+              </div>
+              <div class="timeline-meta">Burnaby, BC, Canada</div>
+              <ul class="timeline-bullets">
+                <li>Research in machine learning and computer vision.</li>
+                <li>Supervisor: Prof. Greg Mori.</li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <span class="org-logo sharif" aria-hidden="true"></span>
+                <div>
+                  <div class="role">B.Sc., Computer Engineering</div>
+                  <div class="org">Sharif University of Technology</div>
+                </div>
+              </div>
+              <div class="timeline-meta">Tehran, Iran</div>
+              <ul class="timeline-bullets">
+                <li>Undergraduate studies in computer engineering and hardware.</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- RIGHT: ABOUT / RESEARCH / CONTACT -->
+      <div>
+        <section id="about">
+          <h2>About</h2>
           <p>
             I am a machine learning engineer at <strong>Meta</strong>, where I work on the
             safety and alignment of large language models. My work focuses on improving the
             reliability of LLMs through better training signals, safety evaluations, and
             model behavior analysis.
           </p>
-
           <p>
             Previously, I co-founded
             <a href="https://variational.ai/">Variational AI</a>,
@@ -60,147 +637,89 @@
             generative models to design novel molecular compounds with the potential to become
             new medicines, exploring chemical space more efficiently than traditional approaches.
           </p>
-
           <p>
             I completed my PhD in Computing Science at
             <a href="http://cs.sfu.ca/~mori/">Simon Fraser University</a> under
             <strong>Prof. Greg Mori</strong>, working on machine learning and computer vision, and
             spent part of my PhD as a visiting researcher at the
             <a href="https://www.nii.ac.jp/en/research/">National Institute of Informatics</a>
-            in Tokyo.
+            in Tokyo. Before that, I earned my B.Sc. in Computer Engineering from
+            <strong>Sharif University of Technology</strong> in Iran.
+          </p>
+        </section>
+
+        <section id="research">
+          <h2>Publications &amp; Preprints</h2>
+          <p class="muted">
+            Selected publications. For a complete and up-to-date list, see my Google Scholar profile.
+          </p>
+          <p>
+            <em>A Robust Learning Approach to Domain Adaptive Object Detection</em> – ICCV 2019<br />
+            <b>M. Khodabandeh</b>, A. Vahdat, M. Ranjbar, W. G. Macready<br />
+            <a href="https://arxiv.org/abs/1904.02361">[pdf]</a>
           </p>
 
           <p>
-            Before that, I earned my B.Sc. in Computer Engineering from
-            <strong>Sharif University of Technology</strong> in Iran.
+            <em>Distribution Aware Active Learning</em> – 2018<br />
+            A. Mehrjou, <b>M. Khodabandeh</b>, G. Mori<br />
+            <a href="https://arxiv.org/abs/1805.08916">[pdf]</a>
           </p>
 
-          <p class="icon-container">
-            <a href="https://www.linkedin.com/in/mehran-khodabandeh-81011b49/" target="_blank" rel="noreferrer">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="cv/Mehran_Khodabandeh_CV_aug_2025.pdf" target="_blank" rel="noreferrer">
-              <i class="fas fa-file-alt"></i>
-            </a>
-            <a href="https://scholar.google.ca/citations?user=OV28nBgAAAAJ" target="_blank" rel="noreferrer">
-              <i class="fas fa-graduation-cap"></i>
-            </a>
-            <a href="https://github.com/mkhodabandeh/" target="_blank" rel="noreferrer">
-              <i class="fab fa-github"></i>
-            </a>
+          <p>
+            <em>Human Action Video Generation for Training Activity Recognition Models</em> – CVPR Workshop 2018<br />
+            <b>M. Khodabandeh</b>, H. Vaezi Joze, I. Zarkhov, V. Pradeep<br />
+            <a href="http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w29/Khodabandeh_DIY_Human_Action_CVPR_2018_paper.pdf">[pdf]</a>
           </p>
-        </div>
+
+          <p>
+            <em>Active Learning for Structured Prediction from Partially Labelled Data</em> – 2017<br />
+            <b>M. Khodabandeh</b>, M. Ibrahim, Z. Deng, S. Satoh, G. Mori<br />
+            <a href="https://arxiv.org/abs/1706.02342">[pdf]</a>
+          </p>
+
+          <ul class="link-list">
+            <li>
+              <a class="chip-link" href="https://scholar.google.ca/citations?user=OV28nBgAAAAJ" target="_blank" rel="noreferrer">
+                <span>Google Scholar</span> ↗
+              </a>
+            </li>
+            <li>
+              <a class="chip-link" href="https://github.com/mkhodabandeh" target="_blank" rel="noreferrer">
+                <span>GitHub</span> ↗
+              </a>
+            </li>
+            <li>
+              <a class="chip-link" href="cv/Mehran_Khodabandeh_CV_aug_2025.pdf" target="_blank" rel="noreferrer">
+                <span>Curriculum Vitae (PDF)</span> ↗
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>
+            The best way to reach me is by email. I’m happy to connect about LLM safety and alignment,
+            generative models, or research/industry collaborations.
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:mehran.kh.68@gmail.com">mehran.kh.68@gmail.com</a>
+          </p>
+          <p class="muted">
+            You can also find me on LinkedIn, GitHub, and Google Scholar using the icons above.
+          </p>
+        </section>
       </div>
-    </div>
+    </main>
 
-    <!-- Professional Experiences -->
-    <div class="main experiences">
-      <div class="boldbig2">Professional Experience</div>
-      <div style="padding-left: 30px;">
+    <footer>
+      &copy; <span id="year"></span> Mehran Khodabandeh. Last updated November 2025.
+    </footer>
+  </div>
 
-        <!-- You can add a Meta logo via CSS class if you want -->
-        <img class="logo meta"></img>
-        <p class="item">
-          Machine Learning Engineer, Meta, Bellevue, WA, USA.<br />
-          Working on safety and alignment of large language models.
-        </p>
-
-        <img class="logo vai"></img>
-        <p class="item">
-          Co-founder and Machine Learning Researcher, Variational AI, Vancouver, BC, Canada. [October 2019 – present].<br />
-        </p>
-
-        <img class="logo google"></img>
-        <p class="item">
-          Research Intern, Google, Seattle, WA, USA. [Fall 2018].<br />
-          Mentors: Aseem Agarwala, Raviteja Vemulapalli
-        </p>
-
-        <img class="logo dwave"></img>
-        <p class="item">
-          Research Intern, D-Wave Systems, Burnaby, BC, Canada. [Spring 2018].<br />
-          Mentors: Arash Vahdat, Mani Ranjbar
-        </p>
-
-        <img class="logo microsoft"></img>
-        <p class="item">
-          Research Intern, Microsoft, Redmond, WA, USA. [Summer 2017].<br />
-          Mentor: Hamid Vaezi Joze
-        </p>
-
-        <img class="logo nii"></img>
-        <p class="item">
-          Research Intern, National Institute of Informatics, Tokyo, Japan. [Spring 2016 and Summer 2015].<br />
-          Supervisor: Prof. Shin'ichi Satoh
-        </p>
-
-        <!-- Teaching assistant section removed as requested -->
-      </div>
-    </div>
-
-    <!-- Publications -->
-    <div class="main publications" id="main_last">
-      <div class="boldbig2">Publications and Preprints</div>
-      <div style="padding-left: 30px; padding-bottom: 20px">
-        <p>
-          <em>A Robust Learning Approach to Domain Adaptive Object Detection</em> - 2018<br />
-          ICCV 2019<br />
-          <b>M. Khodabandeh</b>, A. Vahdat, M. Ranjbar, W. G. Macready<br />
-          <a href="https://arxiv.org/abs/1904.02361">[pdf]</a>
-        </p>
-
-        <p>
-          <em>Distribution Aware Active Learning</em> - 2018<br />
-          A. Mehrjou, <b>M. Khodabandeh</b>, G. Mori<br />
-          <a href="https://arxiv.org/abs/1805.08916">[pdf]</a>
-        </p>
-
-        <p>
-          <em>Human Action Video Generation for Training Activity Recognition Models</em> - 2018<br />
-          CVPR Workshop 2018<br />
-          <b>M. Khodabandeh</b>, Hamidreza Vaezi Joze, Ilya Zarkhov, Vivek Pradeep<br />
-          <a href="http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w29/Khodabandeh_DIY_Human_Action_CVPR_2018_paper.pdf">[pdf]</a>
-        </p>
-
-        <p>
-          <em>Active Learning for Structured Prediction from Partially Labelled Data.</em> - 2017<br />
-          <b>M. Khodabandeh</b>, M. Ibrahim, Z. Deng, S. Satoh, and G. Mori<br />
-          <a href="https://arxiv.org/abs/1706.02342">[pdf]</a>
-        </p>
-
-        <p>
-          <em>Unsupervised Learning of Supervoxel Embeddings for Video Segmentation.</em> - 2016<br />
-          ICPR 2016 (Oral)<br />
-          <b>M. Khodabandeh</b>, S. Muralidharan, A. Vahdat, N. Mehrasa, E. M. Pereira, S. Satoh, and G. Mori<br />
-          <a href="files/ICPR2016.pdf">[pdf]</a>
-          <a href="https://github.com/mkhodabandeh/embedding_segmentation">[code]</a>
-        </p>
-
-        <p>
-          <em>Discovering Human Interactions in Videos with Limited Data Labeling.</em> - 2015<br />
-          CVPR Workshop 2015<br />
-          <b>M. Khodabandeh</b>, A. Vahdat, G.-T. Zhou, H. Hajimirsadeghi, M. Roshtakhir, G. Mori, and S. Se<br />
-          <a href="files/grow15.pdf">[pdf]</a>
-          <a href="https://github.com/mkhodabandeh/interaction_discovery">[code]</a>
-        </p>
-
-        <p>
-          <em>Object Detection in Surveillance Video from Dense Trajectories.</em> - 2015<br />
-          IAPR Conference on Machine Vision Applications (MVA 2015)<br />
-          M. Zhai, L. Chen, <b>M. Khodabandeh</b>, J. Li, and G. Mori
-        </p>
-
-        <p>
-          <em>Strongest Path: A Cytoscape Plugin to Find The Most Confident Paths in Protein-Protein Interactions Networks</em> - 2012<br />
-          Z. Mousavian, <b>M. Khodabandeh</b>, A. Sharifi Zarchi, A. Masoudi Nejad<br />
-          <a href="http://apps.cytoscape.org/apps/strongestpath">[App]</a>
-          <a href="https://github.com/strpaths/release">[Code]</a>
-        </p>
-      </div>
-    </div>
-
-    <div id="footer">
-      Last updated in November, 2025
-    </div>
-  </body>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
